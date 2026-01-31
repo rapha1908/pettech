@@ -1,46 +1,55 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    // File Layout
-    // "rootDir": "./src",
-    // "outDir": "./dist",
-    "baseUrl": ".",  // Changed from "./src" to "." (project root)
+    /* =====================
+       Base / Paths
+    ====================== */
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["src/*"]  // Changed from ["./src/*"] to ["src/*"]
+      "@/*": ["*"]
     },
 
-    // Environment Settings
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
-    // For nodejs:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // and npm install -D @types/node
+    /* =====================
+       Node / ESM
+    ====================== */
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
 
-    // Other Outputs
+    /* =====================
+       Runtime compatibility
+    ====================== */
+    "allowImportingTsExtensions": false,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+
+    /* =====================
+       Output (build)
+    ====================== */
+    "rootDir": "src",
+    "outDir": "dist",
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
 
-    // Stricter Typechecking Options
+    /* =====================
+       Type Safety
+    ====================== */
+    "strict": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
-
-    // Style Options
-    // "noImplicitReturns": true,
-    // "noImplicitOverride": true,
-    // "noUnusedLocals": true,
-    // "noUnusedParameters": true,
-    // "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
-    // Recommended Options
-    "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
     "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
+
+    /* =====================
+       DX / Performance
+    ====================== */
     "skipLibCheck": true,
-  }
+
+    /* =====================
+       Node types
+    ====================== */
+    "types": ["node"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

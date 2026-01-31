@@ -12,6 +12,7 @@
   "type": "module",
   "devDependencies": {
     "@types/node": "25.1.0",
+    "@types/pg": "8.16.0",
     "tsup": "^8.5.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
@@ -19,6 +20,7 @@
   "dependencies": {
     "dotenv": "17.2.3",
     "fastify": "5.7.2",
+    "pg": "8.18.0",
     "zod": "4.3.6"
   }
 }

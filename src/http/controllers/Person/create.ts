@@ -1,6 +1,6 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
-import { CreatePersonUseCase } from "@/use-cases/create-person.js";
+import { createUserUseCase } from "@/use-cases/create-person.js";
 import { PersonRepository } from "@/repositories/person.repository.js";
 
 export async function create(request:FastifyRequest, reply:FastifyReply) {
@@ -15,7 +15,7 @@ export async function create(request:FastifyRequest, reply:FastifyReply) {
 
     try {
         const personRepository = new PersonRepository();
-        const createPersonUseCase = new CreatePersonUseCase(personRepository);
+        const createPersonUseCase = new createUserUseCase(personRepository);
 
         const person = await createPersonUseCase.handle({cpf,name,birth,email});
         return reply.status(201).send(person);
