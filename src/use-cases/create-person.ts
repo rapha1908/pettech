@@ -4,7 +4,7 @@ import type { PersonRepository } from "@/repositories/person.repository.js";
 export class CreatePersonUseCase {
     constructor(private personRepository: PersonRepository) {}
 
-    create(person:Person){
+    handle(person:Person){
         return this.personRepository.createPerson(person);
     }
 
