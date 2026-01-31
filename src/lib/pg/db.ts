@@ -1,4 +1,4 @@
-import { env } from '@/env/index.js';
+import { env } from "../../env/index.js";
 import { Pool } from 'pg';
 import type { PoolClient } from 'pg';
 

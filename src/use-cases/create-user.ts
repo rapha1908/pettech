@@ -1,16 +1,10 @@
-import { User } from '../entities'
-import { UserRepository } from "../repositories/user-repository";
-import "tsconfig-paths/register";
-import "ts-node/register";
+import { User } from "../entities/user.entity.js";
+import type { UserRepository } from "../repositories/user.repository.js";
 
-export class createUserUseCase {
-    
+export class CreateUserUseCase {
     constructor(private userRepository: UserRepository) {}
 
-    async handle(user:User): Promise<User | undefined> {
-        return this.userRepository.createUser(user);
+    async handle(user: User): Promise<User | undefined> {
+        return this.userRepository.create(user);
     }
-
 }
-
-// node -r tsconfig-paths/register -r ts-node/register src/use-cases/create-user.ts

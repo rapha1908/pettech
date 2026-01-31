@@ -1,15 +1,14 @@
-import { FastifyReply, FastifyRequest } from "fastify";
+import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
-import { CreateUserUseCase } from "@/use-cases/create-user.js";
-import { UserRepository } from "@/repositories/user-repository.js";
-import { request } from "https";
+import { CreateUserUseCase } from "../../../use-cases/create-user.js";
+import { UserRepository } from "../../../repositories/user.repository.js";
 
-export async function create(equest:FastifyRequest, reply:FastifyReply) {
-    const registerBodtSchema = z.object({
+export async function create(request: FastifyRequest, reply: FastifyReply) {
+    const registerBodySchema = z.object({
         username: z.string(),
         password: z.string().min(6),
     });
-    const { username, password } = registerBodtSchema.parse(request.body);
+    const { username, password } = registerBodySchema.parse(request.body);
     try {
         const userRepository = new UserRepository();
         const createUserUseCase = new CreateUserUseCase(userRepository);

@@ -1,7 +1,7 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
-import { createUserUseCase } from "@/use-cases/create-person.js";
-import { PersonRepository } from "@/repositories/person.repository.js";
+import { CreatePersonUseCase } from "../../../use-cases/create-person.js";
+import { PersonRepository } from "../../../repositories/person.repository.js";
 
 export async function create(request:FastifyRequest, reply:FastifyReply) {
     const registerBodtSchema = z.object({
@@ -15,7 +15,7 @@ export async function create(request:FastifyRequest, reply:FastifyReply) {
 
     try {
         const personRepository = new PersonRepository();
-        const createPersonUseCase = new createUserUseCase(personRepository);
+        const createPersonUseCase = new CreatePersonUseCase(personRepository);
 
         const person = await createPersonUseCase.handle({cpf,name,birth,email});
         return reply.status(201).send(person);

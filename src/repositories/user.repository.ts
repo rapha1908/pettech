@@ -1,5 +1,5 @@
-import { db } from "@/lib/db.js";
-import type { User } from "@/entities/user.entity.js";
+import { db } from "../lib/pg/db.js";
+import type { User } from "../entities/user.entity.js";
 
 export class UserRepository {
     async create({username, password}: User): Promise<User> {

@@ -1,4 +1,4 @@
-import { Person } from "@/entities/person.entity.js";
+import { Person } from "../entities/person.entity.js";
 
 export class PersonRepository {
 
