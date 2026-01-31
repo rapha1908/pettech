@@ -1,9 +1,6 @@
 import fastify from "fastify";
+import { personRoutes } from "./http/controllers/Person/routes.js";
 
-const app = fastify();
+export const app = fastify();
 
-app.get("/", async () => {
-    return { message: "Hello, World!" };
-});
-
-export { app };
+app.register(personRoutes)
