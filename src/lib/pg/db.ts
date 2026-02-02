@@ -33,6 +33,14 @@ class database {
         return this.client;
     }
 
+    async close() {
+        if (this.client) {
+            this.client.release();
+            this.client = undefined;
+        }
+        await this.pool.end();
+    }
+
 }
 
 export const db = new database();

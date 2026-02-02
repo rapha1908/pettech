@@ -11,11 +11,13 @@ export class Person {
         name: string,
         birth: Date,
         email: string,
+        user_id?: number
     ) {
         this.cpf = cpf
         this.name = name
         this.birth = birth
         this.email = email
+
     }
     
 }
